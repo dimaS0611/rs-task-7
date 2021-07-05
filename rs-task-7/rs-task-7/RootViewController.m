@@ -83,6 +83,15 @@
     return YES;
 }
 
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
+    int ch = [string characterAtIndex:0];
+    if(ch >= 97 && ch <= 122) {
+        return YES;
+    }
+    
+    return NO;
+}
+
 - (void)setBackgroundColorFor:(UIButton *)button with:(UIColor *)backgroundColor forState:(UIControlState)state {
     [button setBackgroundImage: [self imageFromColor:backgroundColor] forState:state];
 }
