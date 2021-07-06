@@ -70,6 +70,10 @@
     [self.authorizeView setUserInteractionEnabled: YES];
     [self.authorizeView setAlpha:1.0f];
     
+    
+    [[self.usernameTextField layer] setBorderColor: [UIColor colorNamed:@"BlackCoral"].CGColor];
+    [[self.passwordTextField layer] setBorderColor: [UIColor colorNamed:@"BlackCoral"].CGColor];
+    
     [[self.authorizeView layer] setBorderColor: UIColor.systemBackgroundColor.CGColor];
     self.secureCodeLabel.text = @"_";
 }
@@ -81,15 +85,6 @@
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     [textField resignFirstResponder];
     return YES;
-}
-
-- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
-    int ch = [string characterAtIndex:0];
-    if(ch >= 97 && ch <= 122) {
-        return YES;
-    }
-    
-    return NO;
 }
 
 - (void)setBackgroundColorFor:(UIButton *)button with:(UIColor *)backgroundColor forState:(UIControlState)state {
@@ -152,8 +147,8 @@
 - (IBAction)authorize:(id)sender {
     if ([[self.usernameTextField text] isEqual:[self username]] && [[self.passwordTextField text] isEqual:[self password]]) {
         
-        [[self.usernameTextField layer] setBorderColor: [UIColor colorNamed:@"BlackCoral"].CGColor];
-        [[self.passwordTextField layer] setBorderColor: [UIColor colorNamed:@"BlackCoral"].CGColor];
+        [[self.usernameTextField layer] setBorderColor: [UIColor colorNamed:@"TurquoiseGreen"].CGColor];
+        [[self.passwordTextField layer] setBorderColor: [UIColor colorNamed:@"TurquoiseGreen"].CGColor];
         
         self.usernameTextField.text = nil;
         self.passwordTextField.text = nil;
@@ -168,11 +163,11 @@
     } else if ([[self.usernameTextField text] isEqual:[self username]]) {
         
         [[self.passwordTextField layer] setBorderColor:UIColor.redColor.CGColor];
-        [[self.usernameTextField layer] setBorderColor: [UIColor colorNamed:@"BlackCoral"].CGColor];
+        [[self.usernameTextField layer] setBorderColor: [UIColor colorNamed:@"TurquoiseGreen"].CGColor];
     } else if ([[self.passwordTextField text] isEqual:[self password]]) {
         
         [[self.usernameTextField layer]setBorderColor:UIColor.redColor.CGColor];
-        [[self.passwordTextField layer] setBorderColor: [UIColor colorNamed:@"BlackCoral"].CGColor];
+        [[self.passwordTextField layer] setBorderColor: [UIColor colorNamed:@"TurquoiseGreen"].CGColor];
     } else {
         
         [[self.usernameTextField layer]setBorderColor:UIColor.redColor.CGColor];
